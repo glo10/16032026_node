@@ -6,7 +6,7 @@
  */
 
 /**
- * 4 façons de récupérer une fonction ou un objet depuis Node
+ * 4 façons d'utiliser une fonction ou un objet depuis Node
  * 1. De manière asynchrone avec des callbacks functions (la majorité des cas)
  * 2. asynchrone avec des promesses (on utilise le prefix /promises)
  *  - .then() => succès
