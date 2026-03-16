@@ -10,7 +10,6 @@ if(!/\d{4}/.test(port)) {
   port = 7000
 }
 createServer((req, res) => {
-  console.log('req', req.url, req.method)
   if(req.url === '/' && req.method.toUpperCase() === 'GET') {
     // Ecrire dans les headers
     res.writeHead(200)
@@ -19,7 +18,7 @@ createServer((req, res) => {
     res.write('<p>A toi jeune Dev Node</p>')
     // Fermer le flux d'écriture et retourner une réponse
     res.end()
-    // Alternative des lignes 18, 19 et 21 res.end('Bienvenue a toi jeune Dev Node')
+    // Alternative condensée aux lignes 18, 19 et 21  res.end('Bienvenue a toi jeune Dev Node')
   } else {
     res.end('404 not found')
   }
