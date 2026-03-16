@@ -5,7 +5,7 @@ import { createServer } from 'node:http'
  * s'il y a le port en argument au rand 2 on prend sa valeur
  * sinon on prend par defaut 7000
  */
-let port = process.argv[2]
+let port = process.env.PORT || process.argv[2]
 if(!/\d{4}/.test(port)) {
   port = 7000
 }
