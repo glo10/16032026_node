@@ -42,6 +42,7 @@
 
 - [Node officielle](https://nodejs.org/docs/latest/api/)
 - [Node via devdocs](https://devdocs.io/node/)
+- [Node avec W3Schools](https://www.w3schools.com/nodejs/default.asp)
 - [MongoDB](https://www.mongodb.com/docs/)
 
 ### Modules node

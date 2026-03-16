@@ -20,3 +20,4 @@ vitest*
 .env
 docker-compose.yml
 **/img/thunder-client
+support
