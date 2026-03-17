@@ -1,0 +1,12 @@
+{
+  "name": "demo-npm",
+  "version": "0.0.1",
+  "description": "Demo npm usage",
+  "license": "ISC",
+  "author": "Glodie Tshimini",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.mjs"
+  }
+}
