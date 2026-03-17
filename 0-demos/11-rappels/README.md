@@ -9,4 +9,4 @@
 - module ***node:fs (méthode readFile()) pour lire les fichiers***
 - et l'objet ***Response et ses méthodes (writeHead(), write() et end())*** pour retourner le contenu lu
 
-cf. Demo [7-web-server](../7-web-server/index.mjs)
+cf. Demo [07-web-server](../07-web-server/index.mjs)
