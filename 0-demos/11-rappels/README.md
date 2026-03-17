@@ -1,11 +1,12 @@
-# Serveur Web
+# Rappels Serveur Web avec HTML
 
 ***Règle : 1 requête = 1 route***
 
-## fonctionnement
+## Fonctionnement
 
-1. requête -> verifier le chemin et la méthode
-2. Charger la page dédié pour la retourner en réponse
-- Besoin des modules ***node:fs (méthode readFile()) pour lire les fichiers*** et l'objet ***Response et ses méthodes (writeHead(), write() et end())***
+1. Requête du client -> verifier le chemin (url) et la méthode
+2. Charger la page dédiée pour la retourner en réponse (une requête est associée à une route). Pour cela, vous avez besoin de 
+- module ***node:fs (méthode readFile()) pour lire les fichiers***
+- et l'objet ***Response et ses méthodes (writeHead(), write() et end())*** pour retourner le contenu lu
 
 cf. Demo [7-web-server](../7-web-server/index.mjs)
