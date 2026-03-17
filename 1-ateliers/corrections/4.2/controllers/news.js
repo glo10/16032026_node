@@ -15,7 +15,7 @@ const checkID = (req, res, next) => {
 
 const findAll = (_, res) => {
   getContent(jsonFile)
-  .then(({ articles, title }) => {
+  .then(({ articles, title }) => { // décomposition idem que .then((data) => { const articles = data.articles; const title = data.title})
     res.render('news/list',{ articles, title })
   }).catch(error => res.render('error', { message : error.message}))
 }
@@ -35,7 +35,7 @@ const getContent = async (filename, charset='utf-8') => {
   .then((data) => {
     const news = JSON.parse(data)
     // Depuis news.rss.channel on décompose pour récupérer item et title
-    const { item, title } = news.rss.channel
+    const { item, title } = news.rss.channel // idem que const item = news.rss.channel.item et title = news.rss.channel.title
     const articles = item.map(article => {
       const { title, id, pubDate, description, link } = article
       const credit = article.content.credit?.__text??'NC'
