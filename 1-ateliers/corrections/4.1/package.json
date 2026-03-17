@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.mjs",
-    "dev": "npm i && npm update & node src/index.mjs"
+    "dev": "npm i && npm update & node src/index.mjs",
+    "watch": "npm i && npm update & node --watch src/index.mjs"
   },
   "type": "module",
   "keywords": [],
