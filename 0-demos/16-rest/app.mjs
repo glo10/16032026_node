@@ -59,15 +59,26 @@ app.get('/users/:id', (req, res) => {
   const id = parseInt(req.params.id)
   getContent(filename)
   .then((users) => {
-    console.log('users', users)
     const user = users.find(u => u.id === id )
-    console.log('user', user)
     if(user) res.json(user)
     else res.json({ success: false, message: 'User not found'})
   })
 })
-app.post('/users', (req, res) => {
 
+// Créer un utiliser et le stocker dans le fichier users.json
+app.post('/users', (req, res) => {
+  console.log('req', req)
+  let body = ''
+  req.on("data", (chunk) => {
+    body+= chunk.toString()
+  })
+  req.on('end', () => {
+    console.log('body before', body, typeof body)
+    body = JSON.parse(body)
+    console.log('body after', body, typeof body)
+    // TODO traitement pour ajouter l'utilisateur dans le fichier public/users.json
+    res.send('OK')
+  })
 })
 
 app.delete('/users/:id', (req, res) => {
