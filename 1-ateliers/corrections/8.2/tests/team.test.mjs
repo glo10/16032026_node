@@ -45,6 +45,12 @@ describe("Testing teams routes API", () => {
     });
   });
 
-  // attention ici modification de la base de données donc utiliser une base test
+  /**
+   * Attention ici modification des données de votre bdd
+   * Utilisez une bdd dédiée aux tests
+   * Pour cela, il suffit de créer une nouvelle base de données MongoDB
+   *  cf. documentation de MongoDB pour faire des exports et imports
+   * et changer dans le .env les identifiants de connexion
+   */ 
   describe.todo("Testing route POST /teams");
 });
