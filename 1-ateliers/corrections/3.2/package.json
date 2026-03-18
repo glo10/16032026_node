@@ -15,9 +15,9 @@
   "author": "Glodie Tshimini",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "^10.0.1",
     "concurrently": "^9.2.1",
-    "eslint": "^9.38.0",
-    "globals": "^16.4.0"
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0"
   }
 }

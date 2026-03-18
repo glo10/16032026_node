@@ -39,8 +39,20 @@ app.get("/", (req, res) => {
   };
   const body = {
     type: "JSON",
-    name: "string",
-    email: "string",
+    properties: {
+      name: { type: "string", required: true },
+      email: { type: "string", required: true },
+    },
+    response: {
+      type: "JSON",
+      data: {
+        success: 'false ou true',
+        message: "message only if error",
+        data: {
+          id: "number"
+        }
+      }
+    }
   };
   const routes = [
     {
@@ -50,7 +62,7 @@ app.get("/", (req, res) => {
     },
     {
       name: "POST /users",
-      description: "Create new user",
+      description: "Create a new user",
       path: `http://localhost:${PORT}/users`,
       body,
     },
