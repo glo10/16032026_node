@@ -1,0 +1,16 @@
+{
+  "name": "7.1",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "chat": "node src/server.mjs",
+    "chat:w": "node --watch src/server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "socket.io": "^4.8.3"
+  }
+}
