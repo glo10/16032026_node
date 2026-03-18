@@ -1,0 +1,40 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Real Madrid",
+      "country": "Spain"
+    },
+    {
+      "id": 2,
+      "name": "Manchester City",
+      "country": "UK"
+    },
+    {
+      "id": 3,
+      "name": "Paris Saint-Germain",
+      "country": "France"
+    },
+    {
+      "id": 4,
+      "name": "Chelsea",
+      "country": "UK"
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "home": 1,
+      "away": 2,
+      "score": "3-0",
+      "date": "2026-03-11"
+    },
+    {
+      "id": 2,
+      "home": 3,
+      "away": 4,
+      "score": "5-2",
+      "date": "2025-03-11"
+    }
+  ]
+}
