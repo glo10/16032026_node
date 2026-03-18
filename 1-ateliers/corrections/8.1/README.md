@@ -1,4 +1,4 @@
-# Correction atelier 8.1 
+# Correction atelier 8.1 : tests unitaires avec *node:test* et *node:assert*
 
 ## Installation et lancement des tests
 
