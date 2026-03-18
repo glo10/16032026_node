@@ -1,5 +1,7 @@
 import { mongoose } from "mongoose";
+import { loadEnv } from "../utils/load-env.mjs";
 export async function connect() {
+  loadEnv()
   const state = mongoose.connection.readyState;
   if (state != 1) { // not connected
     const { MONGO_ROOT_USERNAME, MONGO_ROOT_PASSWORD, MONGO_DB_PORT, MONGO_DB_NAME } = process.env
