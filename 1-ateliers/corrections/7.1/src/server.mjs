@@ -22,6 +22,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', (reason) => {
     console.log('deconnexion', reason)
     users--
-    io.emit('app:new-message', 'Un utilisateur nous a quitté ou à rechargé sa page')
+    io.emit('app:new-message', 'Un utilisateur nous a quitté ou a rechargé sa page')
+    io.emit('app:count', `${users} utilisateur(s) connecté(s)`)
   })
 })
