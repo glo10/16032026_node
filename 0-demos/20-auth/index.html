@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Authentification</title>
 </head>
+
 <body>
-  <p></p>
+  <div></div>
   <form>
-    <input type="text" placeholder="Password"  name="password">
+    <input type="email" placeholder="email" required>
+    <input type="password" placeholder="Mot de passe" required>
     <input type="submit" value="Envoyer">
   </form>
+  <button>Vérifiez la validité du token</button>
   <script>
     const form = document.querySelector('form')
-    if(form) {
+    if (form) {
       form.addEventListener('submit', (e) => {
+        const div = document.querySelector('div')
         e.preventDefault()
-        const pwd = document.querySelector('[name=password]').value
-        fetch('http://localhost:8200/login', {
-          method: 'POST',
-          body: JSON.stringify({ password: pwd}),
-        }).then((token) => {
-          console.log('token', token)
-          localStorage.setItem('token', token)
-          sessionStorage.setItem('token', token)
-          document.cookie.token = `token=${token}`
-        }).catch(error => {
-          console.error('error', error)
-          const p = document.querySelector('p')
-          p.innerHTML = error
-        })
+        const password = document.querySelector('[type=password]').value
+        const email = document.querySelector('[type=email]').value
+
+        if (email && password) {
+          fetch('http://localhost:8200/login', {
+            method: 'POST',
+            body: JSON.stringify({ password, email })
+          })
+            .then(res => res.json())
+            .then(({ token, success, message }) => {
+              /**
+               * Stockage du token au niveau du client (navigateur)
+               *  avec l'un des outils mise à disposition
+               * localStorage stockage pérenne
+               * ou sessionStorage stockage limité à la durée de la session 
+               *  (le token sera effacé lorsque l'onglet du navigateur sera fermé)
+               * ou cookie stockage avec une date d'expiration, une fois dépassée, le token sera supprimé
+               */
+              if (success && token) {
+                localStorage.setItem('token', token)
+                sessionStorage.setItem('token', token)
+                document.cookie = `token=${token}`
+                div.innerHTML = `<p>Connexion avec succès.<p><p>Votre token <strong>${token}</strong></p>`
+              } else {
+                throw new Error()
+              }
+            }).catch(error => {
+              console.log('error', error)
+              div.innerHTML = '<p>Identifiant ou mot de passe incorrect</p>'
+            })
+        }
       })
     }
   </script>
+  <script>
+    const button = document.querySelector('button')
+    button.addEventListener('click', () => {
+      const div = document.querySelector('div')
+      fetch('http://localhost:8200/verify', {
+        headers: {
+          // Dans une application classique à chaque requête le token sera envoyé dans les headers
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+      })
+        .then(res => res.json())
+        .then(({ message, success }) => {
+          if (success) div.innerHTML = message
+          else throw new Error(message)
+        })
+        .catch(({ message }) => {
+          div.innerHTML = message
+        })
+    })
+  </script>
 </body>
+
 </html>
